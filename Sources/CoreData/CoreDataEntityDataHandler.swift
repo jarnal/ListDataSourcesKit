@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 /// CoreData implementation for EntityDataHandler
-open class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: NSFetchRequestResult, DataCellView: ConfigurableNibReusableCell>: EntityDataHandler, CoreDataDependent {
+open class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: NSFetchRequestResult, DataCellView: ConfigurableNibReusableCell>: NSObject, EntityDataHandler, CoreDataDependent {
 
     //****************************************************
     // MARK: - EntityDataHandler Conformance

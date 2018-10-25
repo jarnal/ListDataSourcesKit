@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class ArrayEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: Any, DataCellView: ConfigurableNibReusableCell>: EntityDataHandler {
+open class ArrayEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: Any, DataCellView: ConfigurableNibReusableCell>: NSObject, EntityDataHandler {
     
     public typealias DataProvider = Array<DataEntity>
     public typealias DataListView = ListDataView

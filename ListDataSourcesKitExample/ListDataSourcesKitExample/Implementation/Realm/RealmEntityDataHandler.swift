@@ -10,7 +10,7 @@ import UIKit
 import ListDataSourcesKit
 import RealmSwift
 
-public class RealmEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: Object, DataCellView: ConfigurableNibReusableCell>: EntityDataHandler {
+public class RealmEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: Object, DataCellView: ConfigurableNibReusableCell>: NSObject, EntityDataHandler {
     
     public typealias DataProvider = Results<DataEntity>
     public typealias DataListView = ListDataView
