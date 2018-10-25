@@ -58,6 +58,15 @@ public extension ArrayEntityDataHandler where ListDataView == UITableView, DataC
 
     private var tableView: UITableView { return dataListView }
     
+    /// 🏭 Initializes with a UITableView
+    /// This convenience init exists because `buildDependencies`method can't be called with base init because of a lack of context
+    /// Explanation: buildTableViewDataSource() needs to know if the cell will be either UITableViewCell or UICollectionViewCell
+    /// After that it can configure correctly the data source (tableCellForRowAtIndexPath <=> collectionCellForItemAtIndexPath)
+    public convenience init(forTableView tableView: UITableView, withData data: DataProvider) {
+        self.init(forDataView: tableView, withData: data)
+        buildDependencies()
+    }
+    
     /// 🔨Build the necessary dependencies
     public func buildDependencies (){
 

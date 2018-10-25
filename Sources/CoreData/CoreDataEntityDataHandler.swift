@@ -59,7 +59,7 @@ open class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataE
     // MARK: - Initialize
     //****************************************************
 
-    /// Initializes the data entity for a specific "list" view
+    /// 🏭 Initializes the data entity for a specific "list" view
     /// Keep in mind that it can be either a UITableView or UICollection
     ///
     /// - Parameter dataView: A UITableView or UICollection
@@ -73,7 +73,7 @@ open class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataE
     // MARK: - Public API
     //****************************************************
 
-    /// Update fetch request with new predicate and sorting
+    /// 🔄 Update fetch request with new predicate and sorting
     ///
     /// - Throws: error if fetching fails
     public func fetch() throws {
@@ -135,6 +135,16 @@ extension CoreDataEntityDataHandler where ListDataView == UITableView, DataCellV
 
     private var tableView: UITableView { return dataListView }
     
+    /// 🏭 Initializes with a UITableView
+    /// This convenience init exists because `buildDependencies`method can't be called with base init because of a lack of context
+    /// Explanation: buildTableViewDataSource() needs to know if the cell will be either UITableViewCell or UICollectionViewCell
+    /// After that it can configure correctly the data source (tableCellForRowAtIndexPath <=> collectionCellForItemAtIndexPath)
+    public convenience init(forTableView tableView: UITableView, managedObjectContext: NSManagedObjectContext) {
+        self.init(forDataView: tableView, managedObjectContext: managedObjectContext)
+        buildDependencies()
+    }
+    
+    /// 🔨Build the necessary dependencies
     public func buildDependencies() {
         
         // Setting data source
@@ -253,6 +263,16 @@ extension CoreDataEntityDataHandler where ListDataView == UICollectionView, Data
 
     private var collectionView: UICollectionView { return dataListView }
     
+    /// 🏭 Initializes with a UICollectionView
+    /// This convenience init exists because `buildDependencies`method can't be called with base init because of a lack of context
+    /// Explanation: buildTableViewDataSource() needs to know if the cell will be either UITableViewCell or UICollectionViewCell
+    /// After that it can configure correctly the data source (tableCellForRowAtIndexPath <=> collectionCellForItemAtIndexPath)
+    public convenience init(forCollectionView collectionView: UICollectionView, managedObjectContext: NSManagedObjectContext) {
+        self.init(forDataView: collectionView, managedObjectContext: managedObjectContext)
+        buildDependencies()
+    }
+    
+    /// 🔨Build the necessary dependencies
     public func buildDependencies() {
         
         // Setting data source

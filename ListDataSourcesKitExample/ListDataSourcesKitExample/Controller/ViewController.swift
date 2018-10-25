@@ -80,8 +80,7 @@ class ViewController: UIViewController {
             print(users)
         }
         
-        coreDataHander = UserCoreDataDataHandler(forDataView: tableView, managedObjectContext: DataCoordinator.shared.container.viewContext)
-        coreDataHander.buildDependencies()
+        coreDataHander = UserCoreDataDataHandler(forTableView: self.tableView, managedObjectContext: DataCoordinator.shared.container.viewContext)
         try! coreDataHander.fetch()
         tableView.reloadData()
     }
@@ -120,7 +119,7 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
     
-    var coreDataHander: UserCoreDataDataHandler!
+    var coreDataHander: UserCoreDataDataHandler<UITableView, UserCell>!
     var arrayDataHandler: UserArrayEntityHandler!
     var dataSourceDataHandler: UserDataSourceEntityHandler!
     var realmEntityHandler: UserRealmEntityHandler!
