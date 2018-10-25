@@ -16,6 +16,8 @@ class RealmEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: O
     typealias DataListView = ListDataView
     typealias Entity = DataEntity
     typealias CellView = DataCellView
+    
+    typealias DidChangeContentHandler = () -> Void
 
     var dataProvider: DataProvider?
     var dataSource: BridgedDataSource?
@@ -27,13 +29,9 @@ class RealmEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: O
     }
 
     func fetch() throws {}
-
-    /// ⚠️ Those closures allow controller to respond to specific events of FetchedResultController
-    /// Basically this is not needed, only for specific controller business
-    var willChangeContent: BridgedFetchedResultsDelegate.WillChangeContentHandler?
-    var didChangeSection: BridgedFetchedResultsDelegate.DidChangeSectionHandler?
-    var didChangeObject: BridgedFetchedResultsDelegate.DidChangeObjectHandler?
-    var didChangeContent: BridgedFetchedResultsDelegate.DidChangeContentHandler?
+    
+    /// ⚠️ Those closures allow controller to respond to specific events of Realm Database
+    var didChangeContent: DidChangeContentHandler?
 
     var sortDescriptors: [NSSortDescriptor]?
     var predicate: NSPredicate?
@@ -57,7 +55,7 @@ class RealmEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: O
     //****************************************************
 
     /// 🔨 Build a the DataProvider for the current data handler
-    /// In this case the provider will be a FetchedResultController
+    /// In this case the provider will be a Resuls<DataEntitiy>
     ///
     /// - Returns: Configured data provider
     internal func buildDataProvider() -> DataProvider? {
@@ -77,6 +75,7 @@ extension RealmEntityDataHandler where ListDataView == UITableView, DataCellView
 
     private var tableView: UITableView { return dataListView }
     
+    /// 🔨 Build dependencies
     func buildDependencies() {
         
         // Setting data source
@@ -102,6 +101,8 @@ extension RealmEntityDataHandler where ListDataView == UITableView, DataCellView
                     strongSelf.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .none)
                     strongSelf.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .none)
                     strongSelf.tableView.endUpdates()
+                    
+                    strongSelf.didChangeContent?()
                 }
             case .error(let error):
                 fatalError("\(error)")

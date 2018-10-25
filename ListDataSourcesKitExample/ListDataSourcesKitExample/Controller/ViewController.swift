@@ -106,6 +106,16 @@ class ViewController: UIViewController {
 
         realmEntityHandler = UserRealmEntityHandler(forDataView: tableView)
         realmEntityHandler.buildDependencies()
+        
+        realmEntityHandler.didChangeContent = {
+            print("🔥 didChangeContent")
+        }
+        
+        realm.beginWrite()
+        user1.firstName = "Lalala"
+        realm.add(user1, update: true)
+        try? realm.commitWrite()
+        
         try! realmEntityHandler.fetch()
         tableView.reloadData()
     }

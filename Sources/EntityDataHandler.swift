@@ -24,11 +24,4 @@ public protocol EntityDataHandler: class where DataProvider.Item == Entity {
     func buildViewModel(withEntity entity: Entity) -> CellView.Model
     
     func fetch() throws
-    
-    /// ⚠️ Those closures allow controller to respond to specific events of FetchedResultController
-    /// Basically this is not needed, only for specific controller business
-    var willChangeContent: BridgedFetchedResultsDelegate.WillChangeContentHandler? { get set }
-    var didChangeSection: BridgedFetchedResultsDelegate.DidChangeSectionHandler? { get set }
-    var didChangeObject: BridgedFetchedResultsDelegate.DidChangeObjectHandler? { get set }
-    var didChangeContent: BridgedFetchedResultsDelegate.DidChangeContentHandler? { get set }
 }

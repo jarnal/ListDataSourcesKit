@@ -84,10 +84,31 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0D584D452181BFDA00A1ABC5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB6B93217E5B9F00E88959 /* ViewController.swift */,
+				0DAB6B95217E5B9F00E88959 /* Main.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0D584D462181BFF000A1ABC5 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB6BBF2180666900E88959 /* DataSource */,
+				0DAB6BB3217F74D100E88959 /* Array */,
+				0DAB6BA8217F622500E88959 /* Realm */,
+				0DAB6BA3217F067000E88959 /* CoreData */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 		0DAB6B85217E5B9F00E88959 = {
 			isa = PBXGroup;
 			children = (
 				0DAB6B90217E5B9F00E88959 /* ListDataSourcesKitExample */,
+				0D584D442181B9A400A1ABC5 /* Supporting Files */,
 				0DAB6B8F217E5B9F00E88959 /* Products */,
 				A6786DEFDFA23D21BED1A2BD /* Pods */,
 				6952D8B0FF8F343BBDDA817E /* Frameworks */,
@@ -105,14 +126,9 @@
 		0DAB6B90217E5B9F00E88959 /* ListDataSourcesKitExample */ = {
 			isa = PBXGroup;
 			children = (
-				0D584D442181B9A400A1ABC5 /* Supporting Files */,
+				0D584D452181BFDA00A1ABC5 /* Controller */,
+				0D584D462181BFF000A1ABC5 /* Implementation */,
 				0DAB6BDF2180E08C00E88959 /* View */,
-				0DAB6BBF2180666900E88959 /* DataSource */,
-				0DAB6BB3217F74D100E88959 /* Array */,
-				0DAB6BA8217F622500E88959 /* Realm */,
-				0DAB6BA3217F067000E88959 /* CoreData */,
-				0DAB6B93217E5B9F00E88959 /* ViewController.swift */,
-				0DAB6B95217E5B9F00E88959 /* Main.storyboard */,
 			);
 			path = ListDataSourcesKitExample;
 			sourceTree = "<group>";

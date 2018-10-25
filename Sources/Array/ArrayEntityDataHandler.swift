@@ -26,13 +26,6 @@ open class ArrayEntityDataHandler<ListDataView: CellParentViewProtocol, DataEnti
     
     public func fetch() throws {}
     
-    /// ⚠️ Those closures allow controller to respond to specific events of FetchedResultController
-    /// Basically this is not needed, only for specific controller business
-    public var willChangeContent: BridgedFetchedResultsDelegate.WillChangeContentHandler?
-    public var didChangeSection: BridgedFetchedResultsDelegate.DidChangeSectionHandler?
-    public var didChangeObject: BridgedFetchedResultsDelegate.DidChangeObjectHandler?
-    public var didChangeContent: BridgedFetchedResultsDelegate.DidChangeContentHandler?
-    
     //****************************************************
     // MARK: - Initialize
     //****************************************************
