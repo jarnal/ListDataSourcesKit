@@ -6,49 +6,46 @@
 //  Copyright © 2018 Jonathan Arnal. All rights reserved.
 //
 
-import Foundation
-import ListDataSourcesKit
+import UIKit
 
-class ArrayEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: Any, DataCellView: ConfigurableNibReusableCell>: EntityDataHandler {
+open class ArrayEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: Any, DataCellView: ConfigurableNibReusableCell>: EntityDataHandler {
     
-    typealias DataProvider = Array< Array<DataEntity> >
-    typealias DataListView = ListDataView
-    typealias Entity = DataEntity
-    typealias CellView = DataCellView
+    public typealias DataProvider = Array<DataEntity>
+    public typealias DataListView = ListDataView
+    public typealias Entity = DataEntity
+    public typealias CellView = DataCellView
     
-    var dataProvider: DataProvider?
-    var dataSource: BridgedDataSource?
+    public var dataProvider: DataProvider?
+    public var dataSource: BridgedDataSource?
     
-    var dataListView: ListDataView!
+    public var dataListView: ListDataView!
     
-    func buildViewModel(withEntity entity: DataEntity) -> DataCellView.Model {
+    open func buildViewModel(withEntity entity: DataEntity) -> DataCellView.Model {
         fatalError("BuidViewModel should be overriden!")
     }
     
-    func fetch() throws {}
+    public func fetch() throws {}
     
     /// ⚠️ Those closures allow controller to respond to specific events of FetchedResultController
     /// Basically this is not needed, only for specific controller business
-    var willChangeContent: BridgedFetchedResultsDelegate.WillChangeContentHandler?
-    var didChangeSection: BridgedFetchedResultsDelegate.DidChangeSectionHandler?
-    var didChangeObject: BridgedFetchedResultsDelegate.DidChangeObjectHandler?
-    var didChangeContent: BridgedFetchedResultsDelegate.DidChangeContentHandler?
-    
-    var sortDescriptors: [NSSortDescriptor]?
-    var predicate: NSPredicate?
-    
-    var data: DataProvider?
+    public var willChangeContent: BridgedFetchedResultsDelegate.WillChangeContentHandler?
+    public var didChangeSection: BridgedFetchedResultsDelegate.DidChangeSectionHandler?
+    public var didChangeObject: BridgedFetchedResultsDelegate.DidChangeObjectHandler?
+    public var didChangeContent: BridgedFetchedResultsDelegate.DidChangeContentHandler?
     
     //****************************************************
     // MARK: - Initialize
     //****************************************************
     
-    /// Initializes the data entity for a specific "list" view
+    /// 🏭 Initializes the data entity for a specific "list" view
     /// Keep in mind that it can be either a UITableView or UICollection
     ///
-    /// - Parameter dataView: A UITableView or UICollection
-    init(forDataView dataView: ListDataView) {
+    /// - Parameters:
+    ///   - dataView: A UITableView or UICollection
+    ///   - data: static data
+    public init(forDataView dataView: ListDataView, withData data: DataProvider) {
         dataListView = dataView
+        dataProvider = data
     }
     
     //****************************************************
@@ -56,33 +53,29 @@ class ArrayEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: A
     //****************************************************
     
     /// 🔨 Build a the DataProvider for the current data handler
-    /// In this case the provider will be a FetchedResultController
+    /// In this case the provider will be a static data that was already passed in init
     ///
     /// - Returns: Configured data provider
     internal func buildDataProvider() -> DataProvider? {
-        return self.data
+        return self.dataProvider
     }
 }
 
-extension ArrayEntityDataHandler where ListDataView == UITableView, DataCellView: UITableViewCell {
+public extension ArrayEntityDataHandler where ListDataView == UITableView, DataCellView: UITableViewCell {
 
     private var tableView: UITableView { return dataListView }
+    
+    /// 🔨Build the necessary dependencies
+    public func buildDependencies (){
 
-    convenience init(forDataView dataView: ListDataView, withData data: DataProvider) {
-        self.init(forTableView: dataView, shouldStartProviding: true)
-        
-        self.data = data
-        
         // Setting data source
         dataSource = buildTableViewDataSource()
-        
+        tableView.dataSource = dataSource
+
         // Keeping reference of data provider to avoid deallocation
         dataProvider = buildDataProvider()
     }
     
-    convenience init(forTableView tableView: ListDataView, shouldStartProviding: Bool = true) {
-        self.init(forDataView: tableView)
-    }
 
     /// 🔨 Build a data source for the specific need of a UITableView
     /// ℹ️ Keep in mind that the real data is owned by the data provider

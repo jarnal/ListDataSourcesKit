@@ -7,34 +7,34 @@
 //
 
 import Foundation
-import ListDataSourcesKit
 
-extension Array: DataProviderProtocol where Iterator.Element: Collection, Iterator.Element.Index == Int {
+extension Array: DataProviderProtocol {
     
-    public typealias Item = Iterator.Element.Iterator.Element
+    public typealias Item = Element
     
     public func items(inSection section: Int) -> [Item]? {
-        return self[section] as? [Element.Element]
+        guard section == 0 else { fatalError("❌ There is no sections in ArrayDataProvider") }
+        return self
     }
     
     public func numberOfSections() -> Int {
-        return self.count
+        return 1
     }
     
     public func numberOfItems(inSection section: Int) -> Int {
-        let sectionItems = self[section]
-        return sectionItems.count
+        return self.count
     }
     
     public func item(atRow row: Int, inSection section: Int) -> Item? {
-        return self.object(from: IndexPath(item: row, section: section))
+        guard section == 0 else { fatalError("❌ There is no sections in ArrayDataProvider") }
+        return self[row]
     }
     
     public func headerTitle(inSection section: Int) -> String? {
-        return ""
+        return nil
     }
     
     public func footerTitle(inSection section: Int) -> String? {
-        return ""
+        return nil
     }
 }

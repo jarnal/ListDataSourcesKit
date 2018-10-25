@@ -8,18 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		0DAB6B7A217E5A1900E88959 /* BridgedFetchedResultsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B6D217E5A1900E88959 /* BridgedFetchedResultsDelegate.swift */; };
-		0DAB6B7B217E5A1900E88959 /* CoreDataDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B6F217E5A1900E88959 /* CoreDataDependent.swift */; };
 		0DAB6B7C217E5A1900E88959 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B71217E5A1900E88959 /* ConfigurableCell.swift */; };
 		0DAB6B7D217E5A1900E88959 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B72217E5A1900E88959 /* ReusableCell.swift */; };
 		0DAB6B7E217E5A1900E88959 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B73217E5A1900E88959 /* NibLoadable.swift */; };
-		0DAB6B7F217E5A1900E88959 /* CoreDataEntityDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B74217E5A1900E88959 /* CoreDataEntityDataHandler.swift */; };
 		0DAB6B80217E5A1900E88959 /* FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B75217E5A1900E88959 /* FetchedResultsController.swift */; };
 		0DAB6B81217E5A1900E88959 /* DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B76217E5A1900E88959 /* DataProviderProtocol.swift */; };
 		0DAB6B82217E5A1900E88959 /* CellParentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B77217E5A1900E88959 /* CellParentViewProtocol.swift */; };
 		0DAB6B83217E5A1900E88959 /* BridgedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B78217E5A1900E88959 /* BridgedDataSource.swift */; };
 		0DAB6B84217E5A1900E88959 /* EntityDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B79217E5A1900E88959 /* EntityDataHandler.swift */; };
+		0DAB6BD12180B13200E88959 /* CoreDataDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BC42180B13200E88959 /* CoreDataDependent.swift */; };
+		0DAB6BD22180B13200E88959 /* CoreDataEntityDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BC52180B13200E88959 /* CoreDataEntityDataHandler.swift */; };
+		0DAB6BD42180B13200E88959 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BC82180B13200E88959 /* Section.swift */; };
+		0DAB6BD52180B13200E88959 /* DataSourceEntityDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BC92180B13200E88959 /* DataSourceEntityDataHandler.swift */; };
+		0DAB6BD62180B13200E88959 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BCB2180B13200E88959 /* DataSource.swift */; };
+		0DAB6BD72180B13200E88959 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BCE2180B13200E88959 /* Collection.swift */; };
+		0DAB6BD82180B13200E88959 /* Array+DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BCF2180B13200E88959 /* Array+DataProviderProtocol.swift */; };
+		0DAB6BD92180B13200E88959 /* ArrayEntityDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BD02180B13200E88959 /* ArrayEntityDataHandler.swift */; };
 		52D6D9871BEFF229002C0205 /* ListDataSourcesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* ListDataSourcesKit.framework */; };
-		8933C7851EB5B820000D00A4 /* ListDataSourcesKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* ListDataSourcesKit.swift */; };
 		8933C7901EB5B82D000D00A4 /* ListDataSourcesKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ListDataSourcesKitTests.swift */; };
 		B1F929D4E9AAB60608F9DC34 /* Pods_ListDataSourcesKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F7D2AFD1B721DC801FCDE2 /* Pods_ListDataSourcesKit_iOS.framework */; };
 		E8EDB2F918FAA8D02340BE97 /* Pods_ListDataSourcesKit_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5414F5E55F5EB504D87A5507 /* Pods_ListDataSourcesKit_iOS_Tests.framework */; };
@@ -39,16 +44,22 @@
 		03D7E7C2D3076DAF36A15B22 /* Pods-ListDataSourcesKit-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListDataSourcesKit-watchOS.debug.xcconfig"; path = "Target Support Files/Pods-ListDataSourcesKit-watchOS/Pods-ListDataSourcesKit-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
 		0638469F7955E8B0D1AFFC01 /* Pods-ListDataSourcesKit-macOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListDataSourcesKit-macOS Tests.release.xcconfig"; path = "Target Support Files/Pods-ListDataSourcesKit-macOS Tests/Pods-ListDataSourcesKit-macOS Tests.release.xcconfig"; sourceTree = "<group>"; };
 		0DAB6B6D217E5A1900E88959 /* BridgedFetchedResultsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgedFetchedResultsDelegate.swift; sourceTree = "<group>"; };
-		0DAB6B6F217E5A1900E88959 /* CoreDataDependent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDependent.swift; sourceTree = "<group>"; };
 		0DAB6B71217E5A1900E88959 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		0DAB6B72217E5A1900E88959 /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		0DAB6B73217E5A1900E88959 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		0DAB6B74217E5A1900E88959 /* CoreDataEntityDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataEntityDataHandler.swift; sourceTree = "<group>"; };
 		0DAB6B75217E5A1900E88959 /* FetchedResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsController.swift; sourceTree = "<group>"; };
 		0DAB6B76217E5A1900E88959 /* DataProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProviderProtocol.swift; sourceTree = "<group>"; };
 		0DAB6B77217E5A1900E88959 /* CellParentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellParentViewProtocol.swift; sourceTree = "<group>"; };
 		0DAB6B78217E5A1900E88959 /* BridgedDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgedDataSource.swift; sourceTree = "<group>"; };
 		0DAB6B79217E5A1900E88959 /* EntityDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityDataHandler.swift; sourceTree = "<group>"; };
+		0DAB6BC42180B13200E88959 /* CoreDataDependent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDependent.swift; sourceTree = "<group>"; };
+		0DAB6BC52180B13200E88959 /* CoreDataEntityDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataEntityDataHandler.swift; sourceTree = "<group>"; };
+		0DAB6BC82180B13200E88959 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		0DAB6BC92180B13200E88959 /* DataSourceEntityDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceEntityDataHandler.swift; sourceTree = "<group>"; };
+		0DAB6BCB2180B13200E88959 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		0DAB6BCE2180B13200E88959 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		0DAB6BCF2180B13200E88959 /* Array+DataProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+DataProviderProtocol.swift"; sourceTree = "<group>"; };
+		0DAB6BD02180B13200E88959 /* ArrayEntityDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayEntityDataHandler.swift; sourceTree = "<group>"; };
 		1854EEC701B9E913C37C97D6 /* Pods-ListDataSourcesKit-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListDataSourcesKit-macOS.release.xcconfig"; path = "Target Support Files/Pods-ListDataSourcesKit-macOS/Pods-ListDataSourcesKit-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* ListDataSourcesKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ListDataSourcesKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* ListDataSourcesKit-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ListDataSourcesKit-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +67,6 @@
 		562FC4AF97D96FABA9BC450C /* Pods-ListDataSourcesKit-tvOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListDataSourcesKit-tvOS Tests.debug.xcconfig"; path = "Target Support Files/Pods-ListDataSourcesKit-tvOS Tests/Pods-ListDataSourcesKit-tvOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		60F8F63123C2663BBB9EA35D /* Pods-ListDataSourcesKit-watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListDataSourcesKit-watchOS.release.xcconfig"; path = "Target Support Files/Pods-ListDataSourcesKit-watchOS/Pods-ListDataSourcesKit-watchOS.release.xcconfig"; sourceTree = "<group>"; };
 		8627E8231912FA0F31B1F940 /* Pods_ListDataSourcesKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListDataSourcesKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8933C7841EB5B820000D00A4 /* ListDataSourcesKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDataSourcesKit.swift; sourceTree = "<group>"; };
 		8933C7891EB5B82A000D00A4 /* ListDataSourcesKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDataSourcesKitTests.swift; sourceTree = "<group>"; };
 		930CC94DDB3240AED94D2470 /* Pods-ListDataSourcesKit-macOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListDataSourcesKit-macOS Tests.debug.xcconfig"; path = "Target Support Files/Pods-ListDataSourcesKit-macOS Tests/Pods-ListDataSourcesKit-macOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* ListDataSourcesKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ListDataSourcesKit.plist; sourceTree = "<group>"; };
@@ -97,28 +107,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0DAB6B6E217E5A1900E88959 /* protocol */ = {
+		0DAB6B6E217E5A1900E88959 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				0DAB6B70217E5A1900E88959 /* cell */,
-				0DAB6B6F217E5A1900E88959 /* CoreDataDependent.swift */,
-				0DAB6B74217E5A1900E88959 /* CoreDataEntityDataHandler.swift */,
-				0DAB6B75217E5A1900E88959 /* FetchedResultsController.swift */,
 				0DAB6B76217E5A1900E88959 /* DataProviderProtocol.swift */,
 				0DAB6B77217E5A1900E88959 /* CellParentViewProtocol.swift */,
-			);
-			path = protocol;
-			sourceTree = "<group>";
-		};
-		0DAB6B70217E5A1900E88959 /* cell */ = {
-			isa = PBXGroup;
-			children = (
 				0DAB6B71217E5A1900E88959 /* ConfigurableCell.swift */,
 				0DAB6B72217E5A1900E88959 /* ReusableCell.swift */,
 				0DAB6B73217E5A1900E88959 /* NibLoadable.swift */,
 			);
-			path = cell;
+			path = Protocol;
 			sourceTree = "<group>";
+		};
+		0DAB6BC32180B13200E88959 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB6BC52180B13200E88959 /* CoreDataEntityDataHandler.swift */,
+				0DAB6BC42180B13200E88959 /* CoreDataDependent.swift */,
+				0DAB6B6D217E5A1900E88959 /* BridgedFetchedResultsDelegate.swift */,
+				0DAB6B75217E5A1900E88959 /* FetchedResultsController.swift */,
+			);
+			name = CoreData;
+			path = Sources/CoreData;
+			sourceTree = SOURCE_ROOT;
+		};
+		0DAB6BC72180B13200E88959 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB6BC92180B13200E88959 /* DataSourceEntityDataHandler.swift */,
+				0DAB6BCB2180B13200E88959 /* DataSource.swift */,
+				0DAB6BC82180B13200E88959 /* Section.swift */,
+			);
+			name = DataSource;
+			path = Sources/DataSource;
+			sourceTree = SOURCE_ROOT;
+		};
+		0DAB6BCC2180B13200E88959 /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB6BD02180B13200E88959 /* ArrayEntityDataHandler.swift */,
+				0DAB6BCF2180B13200E88959 /* Array+DataProviderProtocol.swift */,
+				0DAB6BCE2180B13200E88959 /* Collection.swift */,
+			);
+			name = Array;
+			path = Sources/Array;
+			sourceTree = SOURCE_ROOT;
 		};
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
@@ -174,11 +207,12 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0DAB6B6E217E5A1900E88959 /* protocol */,
-				0DAB6B78217E5A1900E88959 /* BridgedDataSource.swift */,
-				0DAB6B6D217E5A1900E88959 /* BridgedFetchedResultsDelegate.swift */,
 				0DAB6B79217E5A1900E88959 /* EntityDataHandler.swift */,
-				8933C7841EB5B820000D00A4 /* ListDataSourcesKit.swift */,
+				0DAB6B78217E5A1900E88959 /* BridgedDataSource.swift */,
+				0DAB6BCC2180B13200E88959 /* Array */,
+				0DAB6BC32180B13200E88959 /* CoreData */,
+				0DAB6BC72180B13200E88959 /* DataSource */,
+				0DAB6B6E217E5A1900E88959 /* Protocol */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -380,18 +414,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DAB6BD52180B13200E88959 /* DataSourceEntityDataHandler.swift in Sources */,
 				0DAB6B7D217E5A1900E88959 /* ReusableCell.swift in Sources */,
-				0DAB6B7F217E5A1900E88959 /* CoreDataEntityDataHandler.swift in Sources */,
 				0DAB6B80217E5A1900E88959 /* FetchedResultsController.swift in Sources */,
 				0DAB6B84217E5A1900E88959 /* EntityDataHandler.swift in Sources */,
-				0DAB6B7B217E5A1900E88959 /* CoreDataDependent.swift in Sources */,
+				0DAB6BD72180B13200E88959 /* Collection.swift in Sources */,
 				0DAB6B82217E5A1900E88959 /* CellParentViewProtocol.swift in Sources */,
 				0DAB6B83217E5A1900E88959 /* BridgedDataSource.swift in Sources */,
 				0DAB6B81217E5A1900E88959 /* DataProviderProtocol.swift in Sources */,
-				8933C7851EB5B820000D00A4 /* ListDataSourcesKit.swift in Sources */,
+				0DAB6BD22180B13200E88959 /* CoreDataEntityDataHandler.swift in Sources */,
+				0DAB6BD92180B13200E88959 /* ArrayEntityDataHandler.swift in Sources */,
+				0DAB6BD62180B13200E88959 /* DataSource.swift in Sources */,
 				0DAB6B7E217E5A1900E88959 /* NibLoadable.swift in Sources */,
 				0DAB6B7C217E5A1900E88959 /* ConfigurableCell.swift in Sources */,
+				0DAB6BD82180B13200E88959 /* Array+DataProviderProtocol.swift in Sources */,
+				0DAB6BD42180B13200E88959 /* Section.swift in Sources */,
 				0DAB6B7A217E5A1900E88959 /* BridgedFetchedResultsDelegate.swift in Sources */,
+				0DAB6BD12180B13200E88959 /* CoreDataDependent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

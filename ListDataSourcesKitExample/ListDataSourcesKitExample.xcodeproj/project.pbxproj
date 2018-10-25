@@ -7,25 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D584D432181B87000A1ABC5 /* UserRealmEntityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D584D422181B86F00A1ABC5 /* UserRealmEntityHandler.swift */; };
 		0DAB6B92217E5B9F00E88959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B91217E5B9F00E88959 /* AppDelegate.swift */; };
 		0DAB6B94217E5B9F00E88959 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6B93217E5B9F00E88959 /* ViewController.swift */; };
 		0DAB6B97217E5B9F00E88959 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DAB6B95217E5B9F00E88959 /* Main.storyboard */; };
 		0DAB6B99217E5BA000E88959 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DAB6B98217E5BA000E88959 /* Assets.xcassets */; };
 		0DAB6B9C217E5BA000E88959 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DAB6B9A217E5BA000E88959 /* LaunchScreen.storyboard */; };
-		0DAB6BA5217F068700E88959 /* CoreDataEntityDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BA4217F068700E88959 /* CoreDataEntityDataHandler.swift */; };
-		0DAB6BA7217F0A7000E88959 /* CoreDataDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BA6217F0A7000E88959 /* CoreDataDependent.swift */; };
 		0DAB6BAA217F623500E88959 /* RealmEntityDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BA9217F623500E88959 /* RealmEntityDataHandler.swift */; };
 		0DAB6BAC217F64B800E88959 /* DataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BAB217F64B800E88959 /* DataCoordinator.swift */; };
 		0DAB6BAF217F73CF00E88959 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BAE217F73CF00E88959 /* RealmUser.swift */; };
 		0DAB6BB2217F743500E88959 /* Results+DataProviderProtocol .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BB1217F743500E88959 /* Results+DataProviderProtocol .swift */; };
-		0DAB6BB6217F755400E88959 /* Array+DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BB5217F755400E88959 /* Array+DataProviderProtocol.swift */; };
-		0DAB6BB8217F761200E88959 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BB7217F761200E88959 /* Collection.swift */; };
-		0DAB6BBA217FA02500E88959 /* ArrayEntityDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BB9217FA02500E88959 /* ArrayEntityDataHandler.swift */; };
-		0DAB6BBC218051B100E88959 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BBB218051B100E88959 /* Section.swift */; };
+		0DAB6BDC2180E02300E88959 /* UserArrayEntityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BDB2180E02300E88959 /* UserArrayEntityHandler.swift */; };
+		0DAB6BDE2180E07100E88959 /* UserDataSourceEntityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BDD2180E07100E88959 /* UserDataSourceEntityHandler.swift */; };
+		0DAB6BE12180E09C00E88959 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BE02180E09C00E88959 /* UserCell.swift */; };
+		0DAB6BE42180E9C300E88959 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BE22180E9C300E88959 /* Model.xcdatamodeld */; };
+		0DAB6BEB2180EB0E00E88959 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BE92180EB0E00E88959 /* User+CoreDataClass.swift */; };
+		0DAB6BEC2180EB0E00E88959 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BEA2180EB0E00E88959 /* User+CoreDataProperties.swift */; };
+		0DAB6BF02180EFB700E88959 /* UserCoreDataDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6BEF2180EFB700E88959 /* UserCoreDataDataHandler.swift */; };
 		508074C74A14E74BE85E5990 /* Pods_ListDataSourcesKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848DC701DC551195B57DB760 /* Pods_ListDataSourcesKitExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D584D422181B86F00A1ABC5 /* UserRealmEntityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRealmEntityHandler.swift; sourceTree = "<group>"; };
 		0DAB6B8E217E5B9F00E88959 /* ListDataSourcesKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListDataSourcesKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAB6B91217E5B9F00E88959 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DAB6B93217E5B9F00E88959 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,16 +36,17 @@
 		0DAB6B98217E5BA000E88959 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DAB6B9B217E5BA000E88959 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DAB6B9D217E5BA000E88959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0DAB6BA4217F068700E88959 /* CoreDataEntityDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataEntityDataHandler.swift; sourceTree = "<group>"; };
-		0DAB6BA6217F0A7000E88959 /* CoreDataDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDependent.swift; sourceTree = "<group>"; };
 		0DAB6BA9217F623500E88959 /* RealmEntityDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmEntityDataHandler.swift; sourceTree = "<group>"; };
 		0DAB6BAB217F64B800E88959 /* DataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoordinator.swift; sourceTree = "<group>"; };
 		0DAB6BAE217F73CF00E88959 /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		0DAB6BB1217F743500E88959 /* Results+DataProviderProtocol .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+DataProviderProtocol .swift"; sourceTree = "<group>"; };
-		0DAB6BB5217F755400E88959 /* Array+DataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+DataProviderProtocol.swift"; sourceTree = "<group>"; };
-		0DAB6BB7217F761200E88959 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
-		0DAB6BB9217FA02500E88959 /* ArrayEntityDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEntityDataHandler.swift; sourceTree = "<group>"; };
-		0DAB6BBB218051B100E88959 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		0DAB6BDB2180E02300E88959 /* UserArrayEntityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArrayEntityHandler.swift; sourceTree = "<group>"; };
+		0DAB6BDD2180E07100E88959 /* UserDataSourceEntityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSourceEntityHandler.swift; sourceTree = "<group>"; };
+		0DAB6BE02180E09C00E88959 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		0DAB6BE32180E9C300E88959 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0DAB6BE92180EB0E00E88959 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0DAB6BEA2180EB0E00E88959 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0DAB6BEF2180EFB700E88959 /* UserCoreDataDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataDataHandler.swift; sourceTree = "<group>"; };
 		40BA082229948D9FC226716C /* Pods-ListDataSourcesKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListDataSourcesKitExample.debug.xcconfig"; path = "Target Support Files/Pods-ListDataSourcesKitExample/Pods-ListDataSourcesKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 		477AFCFB48A1F7C191979244 /* Pods-ListDataSourcesKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListDataSourcesKitExample.release.xcconfig"; path = "Target Support Files/Pods-ListDataSourcesKitExample/Pods-ListDataSourcesKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		848DC701DC551195B57DB760 /* Pods_ListDataSourcesKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListDataSourcesKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +64,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D584D412181B2D500A1ABC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB6BAB217F64B800E88959 /* DataCoordinator.swift */,
+				0DAB6BE22180E9C300E88959 /* Model.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0D584D442181B9A400A1ABC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB6B9D217E5BA000E88959 /* Info.plist */,
+				0DAB6B91217E5B9F00E88959 /* AppDelegate.swift */,
+				0DAB6B98217E5BA000E88959 /* Assets.xcassets */,
+				0DAB6B9A217E5BA000E88959 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		0DAB6B85217E5B9F00E88959 = {
 			isa = PBXGroup;
 			children = (
@@ -81,16 +105,14 @@
 		0DAB6B90217E5B9F00E88959 /* ListDataSourcesKitExample */ = {
 			isa = PBXGroup;
 			children = (
+				0D584D442181B9A400A1ABC5 /* Supporting Files */,
+				0DAB6BDF2180E08C00E88959 /* View */,
+				0DAB6BBF2180666900E88959 /* DataSource */,
 				0DAB6BB3217F74D100E88959 /* Array */,
 				0DAB6BA8217F622500E88959 /* Realm */,
 				0DAB6BA3217F067000E88959 /* CoreData */,
-				0DAB6B91217E5B9F00E88959 /* AppDelegate.swift */,
 				0DAB6B93217E5B9F00E88959 /* ViewController.swift */,
 				0DAB6B95217E5B9F00E88959 /* Main.storyboard */,
-				0DAB6B98217E5BA000E88959 /* Assets.xcassets */,
-				0DAB6B9A217E5BA000E88959 /* LaunchScreen.storyboard */,
-				0DAB6B9D217E5BA000E88959 /* Info.plist */,
-				0DAB6BBB218051B100E88959 /* Section.swift */,
 			);
 			path = ListDataSourcesKitExample;
 			sourceTree = "<group>";
@@ -98,9 +120,10 @@
 		0DAB6BA3217F067000E88959 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				0DAB6BA4217F068700E88959 /* CoreDataEntityDataHandler.swift */,
-				0DAB6BA6217F0A7000E88959 /* CoreDataDependent.swift */,
-				0DAB6BAB217F64B800E88959 /* DataCoordinator.swift */,
+				0DAB6BEF2180EFB700E88959 /* UserCoreDataDataHandler.swift */,
+				0D584D412181B2D500A1ABC5 /* Model */,
+				0DAB6BE92180EB0E00E88959 /* User+CoreDataClass.swift */,
+				0DAB6BEA2180EB0E00E88959 /* User+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -111,6 +134,7 @@
 				0DAB6BB0217F741E00E88959 /* Extension */,
 				0DAB6BAD217F73B900E88959 /* Model */,
 				0DAB6BA9217F623500E88959 /* RealmEntityDataHandler.swift */,
+				0D584D422181B86F00A1ABC5 /* UserRealmEntityHandler.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -134,19 +158,25 @@
 		0DAB6BB3217F74D100E88959 /* Array */ = {
 			isa = PBXGroup;
 			children = (
-				0DAB6BB4217F752F00E88959 /* Extension */,
-				0DAB6BB9217FA02500E88959 /* ArrayEntityDataHandler.swift */,
+				0DAB6BDB2180E02300E88959 /* UserArrayEntityHandler.swift */,
 			);
 			path = Array;
 			sourceTree = "<group>";
 		};
-		0DAB6BB4217F752F00E88959 /* Extension */ = {
+		0DAB6BBF2180666900E88959 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				0DAB6BB5217F755400E88959 /* Array+DataProviderProtocol.swift */,
-				0DAB6BB7217F761200E88959 /* Collection.swift */,
+				0DAB6BDD2180E07100E88959 /* UserDataSourceEntityHandler.swift */,
 			);
-			path = Extension;
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		0DAB6BDF2180E08C00E88959 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB6BE02180E09C00E88959 /* UserCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6952D8B0FF8F343BBDDA817E /* Frameworks */ = {
@@ -291,16 +321,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DAB6BAC217F64B800E88959 /* DataCoordinator.swift in Sources */,
-				0DAB6BB8217F761200E88959 /* Collection.swift in Sources */,
-				0DAB6BB6217F755400E88959 /* Array+DataProviderProtocol.swift in Sources */,
 				0DAB6BAA217F623500E88959 /* RealmEntityDataHandler.swift in Sources */,
+				0DAB6BEC2180EB0E00E88959 /* User+CoreDataProperties.swift in Sources */,
+				0DAB6BDC2180E02300E88959 /* UserArrayEntityHandler.swift in Sources */,
+				0DAB6BDE2180E07100E88959 /* UserDataSourceEntityHandler.swift in Sources */,
 				0DAB6BB2217F743500E88959 /* Results+DataProviderProtocol .swift in Sources */,
-				0DAB6BA7217F0A7000E88959 /* CoreDataDependent.swift in Sources */,
-				0DAB6BA5217F068700E88959 /* CoreDataEntityDataHandler.swift in Sources */,
+				0DAB6BE12180E09C00E88959 /* UserCell.swift in Sources */,
 				0DAB6B94217E5B9F00E88959 /* ViewController.swift in Sources */,
+				0D584D432181B87000A1ABC5 /* UserRealmEntityHandler.swift in Sources */,
+				0DAB6BE42180E9C300E88959 /* Model.xcdatamodeld in Sources */,
+				0DAB6BEB2180EB0E00E88959 /* User+CoreDataClass.swift in Sources */,
+				0DAB6BF02180EFB700E88959 /* UserCoreDataDataHandler.swift in Sources */,
 				0DAB6B92217E5B9F00E88959 /* AppDelegate.swift in Sources */,
-				0DAB6BBC218051B100E88959 /* Section.swift in Sources */,
-				0DAB6BBA217FA02500E88959 /* ArrayEntityDataHandler.swift in Sources */,
 				0DAB6BAF217F73CF00E88959 /* RealmUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,7 +482,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5GBVVQ572;
-				INFOPLIST_FILE = ListDataSourcesKitExample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ListDataSourcesKitExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -470,7 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5GBVVQ572;
-				INFOPLIST_FILE = ListDataSourcesKitExample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ListDataSourcesKitExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -505,6 +537,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0DAB6BE22180E9C300E88959 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0DAB6BE32180E9C300E88959 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0DAB6BE32180E9C300E88959 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0DAB6B86217E5B9F00E88959 /* Project object */;
 }

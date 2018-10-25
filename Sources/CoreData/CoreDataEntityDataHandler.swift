@@ -8,26 +8,25 @@
 
 import UIKit
 import CoreData
-import ListDataSourcesKit
 
 /// CoreData implementation for EntityDataHandler
-class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: NSFetchRequestResult, DataCellView: ConfigurableNibReusableCell>: EntityDataHandler, CoreDataDependent {
+open class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: NSFetchRequestResult, DataCellView: ConfigurableNibReusableCell>: EntityDataHandler, CoreDataDependent {
 
     //****************************************************
     // MARK: - EntityDataHandler Conformance
     //****************************************************
 
-    typealias DataProvider = FetchedResultsController<DataEntity>
-    typealias DataListView = ListDataView
-    typealias Entity = DataEntity
-    typealias CellView = DataCellView
+    public typealias DataProvider = FetchedResultsController<DataEntity>
+    public typealias DataListView = ListDataView
+    public typealias Entity = DataEntity
+    public typealias CellView = DataCellView
 
-    var dataProvider: DataProvider?
-    var dataSource: BridgedDataSource?
+    public var dataProvider: DataProvider?
+    public var dataSource: BridgedDataSource?
 
-    var dataListView: ListDataView!
+    public var dataListView: ListDataView!
 
-    func buildViewModel(withEntity entity: DataEntity) -> DataCellView.Model {
+    open func buildViewModel(withEntity entity: DataEntity) -> DataCellView.Model {
         fatalError("BuidViewModel should be overriden!")
     }
 
@@ -35,10 +34,12 @@ class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity
     // MARK: - CoreDataDependent Conformance
     //****************************************************
 
-    internal var sortDescriptors: [NSSortDescriptor]?
-    internal var predicate: NSPredicate?
-    internal var sectionNameKeyPath: String?
-    internal var cacheName: String?
+    internal var context: NSManagedObjectContext!
+    
+    public var sortDescriptors: [NSSortDescriptor]?
+    public var predicate: NSPredicate?
+    public var sectionNameKeyPath: String?
+    public var cacheName: String?
 
     internal lazy var sectionChanges = [() -> Void]()
     internal lazy var objectChanges = [() -> Void]()
@@ -62,9 +63,10 @@ class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity
     /// Keep in mind that it can be either a UITableView or UICollection
     ///
     /// - Parameter dataView: A UITableView or UICollection
-    init(forDataView dataView: ListDataView) {
+    public init(forDataView dataView: ListDataView, managedObjectContext: NSManagedObjectContext) {
 
         dataListView = dataView
+        context = managedObjectContext
     }
 
     //****************************************************
@@ -104,7 +106,7 @@ class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity
         let entityName = String(describing: Entity.self)
         let fetchRequest = NSFetchRequest<Entity>(entityName: entityName)
         
-        let entity = NSEntityDescription.entity(forEntityName: entityName, in: DataCoordinator.shared.container.viewContext)
+        let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
         fetchRequest.entity = entity
 
         fetchRequest.sortDescriptors = sortDescriptors
@@ -116,7 +118,7 @@ class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity
         // 🔨 Building fetched result controller depending on dependencies (predicate, sorting, etc...)
         let fetchedResultsController: FetchedResultsController<Entity> = FetchedResultsController(
             fetchRequest: fetchRequest,
-            managedObjectContext: DataCoordinator.shared.container.viewContext,
+            managedObjectContext: context,
             sectionNameKeyPath: self.sectionNameKeyPath,
             cacheName: self.cacheName
         )
@@ -132,16 +134,18 @@ class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity
 extension CoreDataEntityDataHandler where ListDataView == UITableView, DataCellView: UITableViewCell {
 
     private var tableView: UITableView { return dataListView }
-
-    convenience init(forTableView tableView: ListDataView, shouldStartProviding: Bool = true) {
-        self.init(forDataView: tableView)
-
+    
+    public func buildDependencies() {
+        
         // Setting data source
         dataSource = buildTableViewDataSource()
         bridgedFetchedResultsDelegate = buildBridgedFetchedResultsDelegate()
-
+        
         // Keeping reference of data provider to avoid deallocation
         dataProvider = buildDataProvider()
+        
+        // Setting data source for tableView
+        tableView.dataSource = dataSource
     }
 
     /// 🔨 Build a data source for the specific need of a UITableView
@@ -172,10 +176,6 @@ extension CoreDataEntityDataHandler where ListDataView == UITableView, DataCellV
             cell.configure(withModel: viewModel)
 
             return cell
-        }
-        
-        dataSource.tableTitleForHeaderInSection = {[unowned self] (section) in
-            return self.dataProvider?.headerTitle(inSection: <#T##Int#>)
         }
 
         return dataSource
@@ -252,15 +252,18 @@ extension CoreDataEntityDataHandler where ListDataView == UITableView, DataCellV
 extension CoreDataEntityDataHandler where ListDataView == UICollectionView, DataCellView: UICollectionViewCell {
 
     private var collectionView: UICollectionView { return dataListView }
-
-    convenience init(forCollectionView collectionView: UICollectionView) {
-        self.init(forDataView: collectionView)
-
-        collectionView.dataSource = buildCollectionViewDataSource()
+    
+    public func buildDependencies() {
+        
+        // Setting data source
+        dataSource = buildCollectionViewDataSource()
         bridgedFetchedResultsDelegate = buildBridgedFetchedResultsDelegate()
-
+        
         // Keeping reference of data provider to avoid deallocation
         dataProvider = buildDataProvider()
+        
+        // Setting collectionView datasource
+        collectionView.dataSource = dataSource
     }
 
     /// 🔨 Build a data source for the specific need of a UICollectionView
@@ -287,19 +290,6 @@ extension CoreDataEntityDataHandler where ListDataView == UICollectionView, Data
 
             return cell
         }
-
-        //        dataSource.collectionSupplementaryViewAtIndexPath = { [unowned self] (collectionView, kind, indexPath) -> UICollectionReusableView in
-        //            var item: SupplementaryConfig.Item?
-        //            if indexPath.section < self.dataSource.numberOfSections() {
-        //                if indexPath.item < self.dataSource.numberOfItems(inSection: indexPath.section) {
-        //                    item = self.dataSource.item(atIndexPath: indexPath)
-        //                }
-        //            }
-        //            return self.supplementaryConfig.supplementaryViewFor(item: item,
-        //                                                                 kind: kind,
-        //                                                                 collectionView: collectionView,
-        //                                                                 indexPath: indexPath)
-        //        }
 
         return dataSource
     }
@@ -379,7 +369,7 @@ extension CoreDataEntityDataHandler where ListDataView == UICollectionView, Data
                     self?.sectionChanges.forEach { $0() }
 
                     }, completion: { [weak self] finished in
-                        //                        self?.reloadSupplementaryViewsIfNeeded()
+//                        self?.reloadSupplementaryViewsIfNeeded()
                 })
 
                 self.didChangeContent?(controller)
