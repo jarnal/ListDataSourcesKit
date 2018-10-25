@@ -10,25 +10,25 @@ import UIKit
 import ListDataSourcesKit
 import RealmSwift
 
-class RealmEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: Object, DataCellView: ConfigurableNibReusableCell>: EntityDataHandler {
+public class RealmEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: Object, DataCellView: ConfigurableNibReusableCell>: EntityDataHandler {
     
-    typealias DataProvider = Results<DataEntity>
-    typealias DataListView = ListDataView
-    typealias Entity = DataEntity
-    typealias CellView = DataCellView
+    public typealias DataProvider = Results<DataEntity>
+    public typealias DataListView = ListDataView
+    public typealias Entity = DataEntity
+    public typealias CellView = DataCellView
     
     typealias DidChangeContentHandler = () -> Void
 
-    var dataProvider: DataProvider?
-    var dataSource: BridgedDataSource?
+    public var dataProvider: DataProvider?
+    public var dataSource: BridgedDataSource?
 
-    var dataListView: ListDataView!
+    public var dataListView: ListDataView!
 
-    func buildViewModel(withEntity entity: DataEntity) -> DataCellView.Model {
+    public func buildViewModel(withEntity entity: DataEntity) -> DataCellView.Model {
         fatalError("BuidViewModel should be overriden!")
     }
 
-    func fetch() throws {}
+    public func fetch() throws {}
     
     /// ⚠️ Those closures allow controller to respond to specific events of Realm Database
     var didChangeContent: DidChangeContentHandler?
@@ -46,7 +46,7 @@ class RealmEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: O
     /// Keep in mind that it can be either a UITableView or UICollection
     ///
     /// - Parameter dataView: A UITableView or UICollection
-    init(forDataView dataView: ListDataView) {
+    internal func initialize(forDataView dataView: ListDataView) {
         dataListView = dataView
     }
 
@@ -74,6 +74,17 @@ class RealmEntityDataHandler<ListDataView: CellParentViewProtocol, DataEntity: O
 extension RealmEntityDataHandler where ListDataView == UITableView, DataCellView: UITableViewCell {
 
     private var tableView: UITableView { return dataListView }
+    
+    /// 🏭 Initializes with a UITableView
+    /// This convenience init exists because `buildDependencies`method can't be called with base init because of a lack of context
+    /// Explanation: buildTableViewDataSource() needs to know if the cell will be either UITableViewCell or UICollectionViewCell
+    /// After that it can configure correctly the data source (tableCellForRowAtIndexPath <=> collectionCellForItemAtIndexPath)
+    public convenience init(forTableView tableView: UITableView) {
+        self.init()
+        
+        initialize(forDataView: tableView)
+        buildDependencies()
+    }
     
     /// 🔨 Build dependencies
     func buildDependencies() {

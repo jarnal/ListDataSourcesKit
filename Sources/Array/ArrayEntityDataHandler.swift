@@ -36,7 +36,7 @@ open class ArrayEntityDataHandler<ListDataView: CellParentViewProtocol, DataEnti
     /// - Parameters:
     ///   - dataView: A UITableView or UICollection
     ///   - data: static data
-    public init(forDataView dataView: ListDataView, withData data: DataProvider) {
+    internal func initialize(forDataView dataView: ListDataView, withData data: DataProvider) {
         dataListView = dataView
         dataProvider = data
     }
@@ -63,7 +63,9 @@ public extension ArrayEntityDataHandler where ListDataView == UITableView, DataC
     /// Explanation: buildTableViewDataSource() needs to know if the cell will be either UITableViewCell or UICollectionViewCell
     /// After that it can configure correctly the data source (tableCellForRowAtIndexPath <=> collectionCellForItemAtIndexPath)
     public convenience init(forTableView tableView: UITableView, withData data: DataProvider) {
-        self.init(forDataView: tableView, withData: data)
+        self.init()
+        
+        initialize(forDataView: tableView, withData: data)
         buildDependencies()
     }
     

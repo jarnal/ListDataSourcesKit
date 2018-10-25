@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        test4()
+        test1()
     }
     
     func test1() {
@@ -34,9 +34,7 @@ class ViewController: UIViewController {
         user2.lastName = "Pan"
         
         let data = [user1, user2]
-        arrayDataHandler = UserArrayEntityHandler(forDataView: self.tableView, withData: data)
-        // Set in protocol ?
-        arrayDataHandler.buildDependencies()
+        arrayDataHandler = UserArrayEntityHandler(forTableView: self.tableView, withData: data)
         tableView.reloadData()
     }
     
@@ -55,8 +53,7 @@ class ViewController: UIViewController {
         ]
         let data: DataSource<RealmUser> = DataSource( sections )
         
-        dataSourceDataHandler = UserDataSourceEntityHandler(forDataView: self.tableView, withData: data)
-        dataSourceDataHandler.buildDependencies()
+        dataSourceDataHandler = UserDataSourceEntityHandler(forTableView: self.tableView, withData: data)
         tableView.reloadData()
     }
     
@@ -103,9 +100,7 @@ class ViewController: UIViewController {
         realm.add(user2, update: true)
         try? realm.commitWrite()
 
-        realmEntityHandler = UserRealmEntityHandler(forDataView: tableView)
-        realmEntityHandler.buildDependencies()
-        
+        realmEntityHandler = UserRealmEntityHandler(forTableView: tableView)
         realmEntityHandler.didChangeContent = {
             print("🔥 didChangeContent")
         }

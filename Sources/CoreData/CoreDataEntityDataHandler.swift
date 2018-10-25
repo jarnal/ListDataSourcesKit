@@ -36,10 +36,10 @@ open class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataE
 
     internal var context: NSManagedObjectContext!
     
-    public var sortDescriptors: [NSSortDescriptor]?
-    public var predicate: NSPredicate?
-    public var sectionNameKeyPath: String?
-    public var cacheName: String?
+    open var sortDescriptors: [NSSortDescriptor]?
+    open var predicate: NSPredicate?
+    open var sectionNameKeyPath: String?
+    open var cacheName: String?
 
     internal lazy var sectionChanges = [() -> Void]()
     internal lazy var objectChanges = [() -> Void]()
@@ -63,7 +63,7 @@ open class CoreDataEntityDataHandler<ListDataView: CellParentViewProtocol, DataE
     /// Keep in mind that it can be either a UITableView or UICollection
     ///
     /// - Parameter dataView: A UITableView or UICollection
-    public init(forDataView dataView: ListDataView, managedObjectContext: NSManagedObjectContext) {
+    internal func initialize(forDataView dataView: ListDataView, managedObjectContext: NSManagedObjectContext) {
 
         dataListView = dataView
         context = managedObjectContext
@@ -140,7 +140,9 @@ extension CoreDataEntityDataHandler where ListDataView == UITableView, DataCellV
     /// Explanation: buildTableViewDataSource() needs to know if the cell will be either UITableViewCell or UICollectionViewCell
     /// After that it can configure correctly the data source (tableCellForRowAtIndexPath <=> collectionCellForItemAtIndexPath)
     public convenience init(forTableView tableView: UITableView, managedObjectContext: NSManagedObjectContext) {
-        self.init(forDataView: tableView, managedObjectContext: managedObjectContext)
+        self.init()
+        
+        initialize(forDataView: tableView, managedObjectContext: managedObjectContext)
         buildDependencies()
     }
     
@@ -268,7 +270,9 @@ extension CoreDataEntityDataHandler where ListDataView == UICollectionView, Data
     /// Explanation: buildTableViewDataSource() needs to know if the cell will be either UITableViewCell or UICollectionViewCell
     /// After that it can configure correctly the data source (tableCellForRowAtIndexPath <=> collectionCellForItemAtIndexPath)
     public convenience init(forCollectionView collectionView: UICollectionView, managedObjectContext: NSManagedObjectContext) {
-        self.init(forDataView: collectionView, managedObjectContext: managedObjectContext)
+        self.init()
+        
+        initialize(forDataView: collectionView, managedObjectContext: managedObjectContext)
         buildDependencies()
     }
     

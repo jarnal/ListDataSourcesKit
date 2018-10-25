@@ -12,10 +12,9 @@ import CoreData
 /// User data source using CoreDataEntityDataHandler
 class UserCoreDataDataHandler<ListDataView: CellParentViewProtocol, DataCellView: ConfigurableNibReusableCell>: CoreDataEntityDataHandler<ListDataView, User, DataCellView> {
     
-    /// 🏭 Initialization overriden to set a sort descriptor for NSFetchResultController (mandatory)
-    override init(forDataView dataView: ListDataView, managedObjectContext: NSManagedObjectContext) {
-        super.init(forDataView: dataView, managedObjectContext: managedObjectContext)
-        sortDescriptors = [NSSortDescriptor(key: #keyPath(User.firstname), ascending: true)]
+    override var sortDescriptors: [NSSortDescriptor]? {
+        get { return [NSSortDescriptor(key: #keyPath(User.firstname), ascending: true)] }
+        set { /*🔴*/ }
     }
     
 }
