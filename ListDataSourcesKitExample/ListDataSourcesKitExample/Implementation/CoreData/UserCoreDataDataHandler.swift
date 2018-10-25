@@ -17,4 +17,8 @@ class UserCoreDataDataHandler<ListDataView: CellParentViewProtocol, DataCellView
         set { /*🔴*/ }
     }
     
+    override func buildViewModel(withEntity entity: User) -> DataCellView.Model {
+        return UserCellViewModel(firstName: entity.firstname!, lastName: entity.lastname!) as! DataCellView.Model
+    }
+    
 }

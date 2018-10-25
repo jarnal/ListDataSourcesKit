@@ -10,7 +10,7 @@ import ListDataSourcesKit
 
 /// User data source using ArrayEntityDataHandler
 class UserArrayEntityHandler: ArrayEntityDataHandler<UITableView, RealmUser, UserCell> {
-    
+
     override func buildViewModel(withEntity entity: RealmUser) -> UserCellViewModel {
         return UserCellViewModel(firstName: entity.firstName, lastName: entity.lastName)
     }
