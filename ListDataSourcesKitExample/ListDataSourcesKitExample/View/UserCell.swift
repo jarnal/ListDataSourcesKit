@@ -21,7 +21,6 @@ struct UserCellViewModel {
 class UserCell: UITableViewCell, ConfigurableNibReusableCell {
     
     typealias Model = UserCellViewModel
-    typealias CellView = UITableView
     
     @IBOutlet weak var fullNameLabel: UILabel!
     
