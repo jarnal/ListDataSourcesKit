@@ -175,25 +175,23 @@ class UserCoreDataDataHandler<ListDataView: CellParentViewProtocol, DataCellView
 At this point, we have all parts needed to populate our `UITableView`:
 
 ```swift
-
 class MyViewController: UIViewController {
     
-	@IBOutlet weak var tableView: UITableView!
+   @IBOutlet weak var tableView: UITableView!
   	
-	var coreDataHander: UserCoreDataDataHandler<UITableView, UserCell>!
+  	var coreDataHander: UserCoreDataDataHandler<UITableView, UserCell>!
   	
-	// Managed object context containing model data
+  	// Managed object context containing model data
 	var myManagedObjectContext: NSManagedObjectContext!
   	
 	override func viewDidAppear(_ animated: Bool) {
-	super.viewDidAppear(animated)
-	populateTableView()
+		super.viewDidAppear(animated)
+		populateTableView()
 	}
     
 	func populateTableView() {
 		coreDataHander = UserCoreDataDataHandler(forTableView: self.tableView, managedObjectContext: myManagedObjectContext)
 	}
-
 }
 ```
 
@@ -212,13 +210,14 @@ Those are the events that you can observe, to do so, you juste need to set the c
 
 ```swift
 func populateTableView() {
+
   coreDataHander = UserCoreDataDataHandler(forTableView: self.tableView, managedObjectContext: DataCoordinator.shared.container.viewContext)
   coreDataHander.didChangeContent = { [weak self] (controller) in
     // Custom logic
   }
-	coreDataHander.didChangeObject = { [weak self] (controller, object, indexPath, changeType, newIndexPath) in
-		// Custom logic
-	}
+  coreDataHander.didChangeObject = { [weak self] (controller, object, indexPath, changeType, newIndexPath) in
+    // Custom logic
+  }
 }
 ```
 You can react to changes in the best way for you app 👍
