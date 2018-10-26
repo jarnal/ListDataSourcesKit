@@ -84,6 +84,9 @@ extension RealmEntityDataHandler where ListDataView == UITableView, DataCellView
         
         initialize(forDataView: tableView)
         buildDependencies()
+        
+        try? fetch()
+        tableView.reloadData()
     }
     
     /// 🔨 Build dependencies

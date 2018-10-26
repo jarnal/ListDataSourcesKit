@@ -67,6 +67,7 @@ extension DataSourceEntityDataHandler where ListDataView == UITableView, DataCel
         
         initialize(forDataView: tableView, withData: data)
         buildDependencies()
+        tableView.reloadData()
     }
     
     /// 🔨Build the necessary dependencies

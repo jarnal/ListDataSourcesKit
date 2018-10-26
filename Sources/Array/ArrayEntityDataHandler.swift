@@ -67,6 +67,7 @@ public extension ArrayEntityDataHandler where ListDataView == UITableView, DataC
         
         initialize(forDataView: tableView, withData: data)
         buildDependencies()
+        tableView.reloadData()
     }
     
     /// 🔨Build the necessary dependencies

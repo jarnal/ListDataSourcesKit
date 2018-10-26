@@ -144,6 +144,9 @@ extension CoreDataEntityDataHandler where ListDataView == UITableView, DataCellV
         
         initialize(forDataView: tableView, managedObjectContext: managedObjectContext)
         buildDependencies()
+        
+        try? fetch()
+        tableView.reloadData()
     }
     
     /// 🔨Build the necessary dependencies
@@ -274,6 +277,7 @@ extension CoreDataEntityDataHandler where ListDataView == UICollectionView, Data
         
         initialize(forDataView: collectionView, managedObjectContext: managedObjectContext)
         buildDependencies()
+        collectionView.reloadData()
     }
     
     /// 🔨Build the necessary dependencies
